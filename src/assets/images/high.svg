@@ -1,0 +1,13 @@
+<svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='11'
+                  height='20'
+                  viewBox='0 0 11 20'
+                  fill='none'
+                  className='market_news_item_icon'
+                >
+                  <path
+                    d='M6.875 4.9875L6.875 20H4.125L4.125 4.9875H0L5.5 0L11 4.9875H6.875Z'
+                    fill='#2ACD1C'
+                  />
+                </svg>

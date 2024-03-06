@@ -1,0 +1,145 @@
+.live-today-page {
+  height: 100vh;
+  width: 90%;
+  font-family: 'Poppins';
+  padding: 10px 0;
+}
+
+.live-today-heading {
+  font-family: 'Poppins', sans-serif !important;
+  padding: 10px 20px;
+  border-bottom: solid #b2b2b2b2;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.66px;
+  margin-bottom: 34px;
+  span {
+    border-bottom: solid 3px #2747dd;
+    padding: 9px;
+  }
+}
+
+.live-today-container {
+  border-radius: 3px;
+  background: #f3f6ff;
+  padding: 35px;
+  width: 100%;
+}
+
+.live-today-container-header {
+  border-bottom: solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 17px;
+}
+
+.live-today-container-header-left-half {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  span {
+    color: #2747dd;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+  }
+}
+
+.live-today-container-header-right-half {
+  align-items: center;
+  span {
+    margin-right: 6px;
+  }
+  .lots-container {
+    justify-content: space-between;
+    width: 64px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 2px 4px 2px 6px;
+  }
+
+  .cancel {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 55px;
+    height: 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+  }
+}
+
+.live-today-container-middle {
+  padding: 20px 0;
+  display: flex;
+  border: none;
+  border-bottom: solid;
+  align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  .key-value-pair {
+    margin-right: 10%;
+  }
+
+  .key {
+    margin-right: 7px;
+  }
+
+  .value {
+    font-weight: 500;
+  }
+}
+
+.live-today-table {
+  display: flex;
+  flex-direction: column;
+  table {
+    width: 100%;
+  }
+  th,
+  td {
+    padding: 15px 0;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    max-width: 35px;
+    color: #000;
+    letter-spacing: 0.48px;
+  }
+
+  td {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 29.5px;
+    letter-spacing: 0.42px;
+    color: #252525;
+  }
+
+  .live-today-table-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+  }
+}
+
+.kill-popup-card {
+  position: fixed;
+  top: 40%;
+  left: 45%;
+  background: #ffffff;
+  border-radius: 5px;
+  height: 200px;
+  width: 400px;
+  color: rgb(125, 122, 122);
+}
