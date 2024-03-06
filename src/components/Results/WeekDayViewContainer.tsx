@@ -25,18 +25,20 @@ const WeekDayViewContainer: React.FC<Props> = (props) => {
   }
 
   const formatNumber = (amount: string): string => {
-    const suffixes = ['', 'K', 'M', 'B', 'T'];
-    const numberAmount = parseFloat(amount.replace(/,/g, ''));
+    const suffixes = ["", "K", "M", "B", "T"];
+    const numberAmount = parseFloat(amount.replace(/,/g, ""));
     const isNegative = numberAmount < 0;
     const absoluteAmount = Math.abs(numberAmount);
     if (absoluteAmount >= 1000) {
-        const suffixIndex = Math.floor(Math.log10(absoluteAmount) / 3);
-        const shortValue = (absoluteAmount / Math.pow(1000, suffixIndex)).toFixed(1);
-        return (isNegative ? '-' : '') + shortValue + suffixes[suffixIndex];
+      const suffixIndex = Math.floor(Math.log10(absoluteAmount) / 3);
+      const shortValue = (absoluteAmount / Math.pow(1000, suffixIndex)).toFixed(
+        1,
+      );
+      return (isNegative ? "-" : "") + shortValue + suffixes[suffixIndex];
     } else {
-        return amount;
+      return amount;
     }
-};
+  };
 
   function getAllWeekDays() {
     return WeekDays.map((weekDay) => {
@@ -77,7 +79,8 @@ const WeekDayViewContainer: React.FC<Props> = (props) => {
       return (
         <td key={value} style={{ ...styles.cellStyle, ...styles.rowTopBorder }}>
           <p style={getClassName(value)}>
-            {value ? formatNumber(value.toFixed(2)) : 0} {getPerctAppendStr(value)}
+            {value ? formatNumber(value.toFixed(2)) : 0}{" "}
+            {getPerctAppendStr(value)}
           </p>
         </td>
       );

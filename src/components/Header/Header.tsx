@@ -112,8 +112,8 @@ function Header({ currentPage }: HeaderProps) {
             props?.responsive
               ? styles.profileNameResponsiveStyle
               : windowSize <= 1160
-              ? { ...styles.profileNameStyle, ...{ fontSize: "11px" } }
-              : styles.profileNameStyle
+                ? { ...styles.profileNameStyle, ...{ fontSize: "11px" } }
+                : styles.profileNameStyle
           }
         >
           Hi,{" "}
@@ -231,16 +231,16 @@ function Header({ currentPage }: HeaderProps) {
                     ...{ fontSize: "11px", whiteSpace: "nowrap" },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.BackTesting),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.BackTesting) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.BackTesting),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.BackTesting) }
             }
             onClick={() => {
               navigate("/backtesting");
@@ -260,18 +260,18 @@ function Header({ currentPage }: HeaderProps) {
                     },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.AI_Strategies),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                      display: "flex",
-                      alignItems: "center",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.AI_Strategies) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.AI_Strategies),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                        display: "flex",
+                        alignItems: "center",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.AI_Strategies) }
             }
             onMouseEnter={handleDropdownOpen}
             onMouseLeave={handleDropdownClose}
@@ -379,16 +379,16 @@ function Header({ currentPage }: HeaderProps) {
                     ...{ fontSize: "11px", whiteSpace: "nowrap" },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.Market_News),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.Market_News) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.Market_News),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.Market_News) }
             }
             onClick={() => {
               navigate("/market-news");
@@ -404,16 +404,16 @@ function Header({ currentPage }: HeaderProps) {
                     ...{ fontSize: "11px", whiteSpace: "nowrap" },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.Learn),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.Learn) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.Learn),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.Learn) }
             }
             onClick={() => {
               navigate("/learn-more-about-leaderboard");
@@ -429,16 +429,16 @@ function Header({ currentPage }: HeaderProps) {
                     ...{ fontSize: "11px", whiteSpace: "nowrap" },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.Pricing),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.Pricing) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.Pricing),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.Pricing) }
             }
             onClick={() => {
               setSelectedSectionIndex(3);
@@ -455,16 +455,16 @@ function Header({ currentPage }: HeaderProps) {
                     ...{ fontSize: "11px", whiteSpace: "nowrap" },
                   }
                 : windowSize <= 1000
-                ? {
-                    ...getStylesForPage(CurrentPage.Leaderboard),
-                    ...{
-                      fontSize: "11px",
-                      whiteSpace: "nowrap",
-                      backgroundColor: "transparent",
-                      border: "none",
-                    },
-                  }
-                : { ...getStylesForPage(CurrentPage.Leaderboard) }
+                  ? {
+                      ...getStylesForPage(CurrentPage.Leaderboard),
+                      ...{
+                        fontSize: "11px",
+                        whiteSpace: "nowrap",
+                        backgroundColor: "transparent",
+                        border: "none",
+                      },
+                    }
+                  : { ...getStylesForPage(CurrentPage.Leaderboard) }
             }
             onClick={() => {
               navigate("/leaderboard");

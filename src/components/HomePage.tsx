@@ -77,7 +77,6 @@ const HomePage: React.FC = () => {
     setResults(optionsParse);
   }
 
-
   // useMemo(() => {
   //   setTimeout(() => {
   //     showResults(Samples.successResponse as any);

@@ -53,7 +53,10 @@ function Leaderboard() {
         </h5>
         <hr className="leaderboard-horizontal-line" />
 
-        <Link className="learnmoreaboutleaderboard" to={"/learn-more-about-leaderboard"}>
+        <Link
+          className="learnmoreaboutleaderboard"
+          to={"/learn-more-about-leaderboard"}
+        >
           Learn more about Leaderboard{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"

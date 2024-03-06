@@ -2,9 +2,7 @@ import React from "react";
 import Subscription from "../Subscription/Subscription";
 
 const MySubscriptions: React.FC = () => {
-  return (
-    <Subscription/>
-  );
+  return <Subscription />;
 };
 
 export default MySubscriptions;

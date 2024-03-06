@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import PricingPlans from '../Landing/PricingPlans';
-import { Styles, Theme } from '../../Utils/Constants';
-import { Switch } from '@mui/joy';
-import { CheckCircle } from '@mui/icons-material';
-import './PlansAndPricing.css';
-import PurchaseDialog from '../Dialogs/PurchaseDialog';
+import React, { useState, useEffect } from "react";
+import PricingPlans from "../Landing/PricingPlans";
+import { Styles, Theme } from "../../Utils/Constants";
+import { Switch } from "@mui/joy";
+import { CheckCircle } from "@mui/icons-material";
+import "./PlansAndPricing.css";
+import PurchaseDialog from "../Dialogs/PurchaseDialog";
 import {
   PlanData,
   UpgradePlan,
   fetchUserPlanPricing,
-} from '../../API/ProfileAPI';
+} from "../../API/ProfileAPI";
 
 export function generateRandomString() {
-  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  let randomString = '';
+  const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+  let randomString = "";
 
   for (let i = 0; i < 12; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
@@ -27,8 +27,8 @@ export function addDaysToDate(daysToAdd: any) {
   today.setDate(today.getDate() + daysToAdd);
 
   const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
 
   return `${year}-${month}-${day}`;
 }
@@ -41,7 +41,7 @@ const PlanAndPricing: React.FC = () => {
   // const [planData, setplanData] = useState(null);
   const [planData, setPlanData] = useState<PlanData | null>(null);
 
-  const [currentPlan, setcurrentPlan] = useState('free plan');
+  const [currentPlan, setcurrentPlan] = useState("free plan");
   console.log(isMonthly);
   useEffect(() => {
     const fetchUserData = async () => {
@@ -49,9 +49,9 @@ const PlanAndPricing: React.FC = () => {
         const userData = await fetchUserPlanPricing();
         console.log(userData);
 
-        if (userData.user_plan_details.plan_name === 'Free') {
+        if (userData.user_plan_details.plan_name === "Free") {
           setIsBuyNowClicked(false);
-        } else if (userData.user_plan_details.plan_name === 'PREMIUM') {
+        } else if (userData.user_plan_details.plan_name === "PREMIUM") {
           setIsBuyNowClicked(true);
         }
       } catch (error) {
@@ -63,37 +63,37 @@ const PlanAndPricing: React.FC = () => {
   }, []);
 
   const strings = {
-    backtestDesc: 'Backtest your strategies with historical data',
-    strategyDesc: 'Choose and deploy your strategies to the market',
+    backtestDesc: "Backtest your strategies with historical data",
+    strategyDesc: "Choose and deploy your strategies to the market",
   };
   const freemiums = [
     {
       advantage: true,
-      text: 'Free Advantage 1',
+      text: "Free Advantage 1",
     },
     {
       advantage: true,
-      text: 'Free Advantage 1',
+      text: "Free Advantage 1",
     },
     {
       advantage: true,
-      text: 'Free Advantage 1',
+      text: "Free Advantage 1",
     },
     {
       advantage: true,
-      text: 'Free Advantage 1',
+      text: "Free Advantage 1",
     },
     {
       advantage: true,
-      text: 'Free Advantage 1',
+      text: "Free Advantage 1",
     },
     {
       advantage: false,
-      text: 'Disdvantage 1',
+      text: "Disdvantage 1",
     },
     {
       advantage: false,
-      text: 'Disdvantage 1',
+      text: "Disdvantage 1",
     },
   ];
   const getPricingPlansSwitcher = () => {
@@ -130,26 +130,26 @@ const PlanAndPricing: React.FC = () => {
       <div style={styles.frequencyBox}>
         <p style={styles.freqText}>Bill Monthly</p>
         <Switch
-          size='lg'
+          size="lg"
           onChange={() => setIsMonthly(!isMonthly)}
           checked={!isMonthly}
           slotProps={{
             track: {
               sx: {
-                justifyContent: 'space-around',
+                justifyContent: "space-around",
                 backgroundColor: Theme.colors.blueSolid,
                 color: Theme.colors.yellow,
               },
             },
           }}
           sx={{
-            '--Switch-thumbSize': '24px',
-            '--Switch-trackWidth': '64px',
-            '--Switch-trackHeight': '32px',
+            "--Switch-thumbSize": "24px",
+            "--Switch-trackWidth": "64px",
+            "--Switch-trackHeight": "32px",
           }}
         />
         <p style={styles.freqText}>
-          Bill Annually{' '}
+          Bill Annually{" "}
           <span style={{ color: Theme.colors.blueSolid }}>( Save 40% )</span>
         </p>
       </div>
@@ -189,7 +189,7 @@ const PlanAndPricing: React.FC = () => {
       setPlanData(upgradePlanData);
       console.log(planData);
     } catch (error) {
-      console.error('Error occured in plan api');
+      console.error("Error occured in plan api");
     }
   }
 
@@ -201,7 +201,7 @@ const PlanAndPricing: React.FC = () => {
         <p style={Styles.h1Text}>₹0/Month</p>
         <button style={styles.yellowButton}>Claim Now!</button>
         <div style={{ ...Styles.bottomBorderLine, ...styles.divider }}></div>
-        <div style={{ textAlign: 'start', padding: '0 24px' }}>
+        <div style={{ textAlign: "start", padding: "0 24px" }}>
           {getAdvantagesList(freemiums)}
         </div>
       </>
@@ -216,7 +216,7 @@ const PlanAndPricing: React.FC = () => {
         <p style={Styles.h1Text}>₹999/Month</p>
         <p>(excl. 18% GST)</p>
         <div style={{ ...Styles.bottomBorderLine, ...styles.divider }}></div>
-        <div style={{ textAlign: 'start', padding: '0 24px' }}>
+        <div style={{ textAlign: "start", padding: "0 24px" }}>
           {getAdvantagesList(freemiums)}
         </div>
         {isBuyNowClicked ? (
@@ -236,11 +236,11 @@ const PlanAndPricing: React.FC = () => {
         <div
           style={{
             ...styles.freePlanBox,
-            border: isBuyNowClicked ? '' : '4px solid rgba(39, 71, 221, 1)',
+            border: isBuyNowClicked ? "" : "4px solid rgba(39, 71, 221, 1)",
           }}
         >
           {!isBuyNowClicked && (
-            <div style={{ ...styles.currentPlan, position: 'relative' }}>
+            <div style={{ ...styles.currentPlan, position: "relative" }}>
               Current Plan
             </div>
           )}
@@ -250,11 +250,11 @@ const PlanAndPricing: React.FC = () => {
           style={{
             ...styles.eachPlanBox,
             backgroundColor: Theme.colors.blueTainted15,
-            border: isBuyNowClicked ? '4px solid rgba(39, 71, 221, 1)' : '',
+            border: isBuyNowClicked ? "4px solid rgba(39, 71, 221, 1)" : "",
           }}
         >
           {isBuyNowClicked && (
-            <div style={{ ...styles.currentPlanPremium, position: 'relative' }}>
+            <div style={{ ...styles.currentPlanPremium, position: "relative" }}>
               Current Plan
             </div>
           )}
@@ -267,22 +267,22 @@ const PlanAndPricing: React.FC = () => {
   return (
     <div>
       <h3>Current Plan</h3>
-      <div className='priceCardplan'>
-        <div className='priceCol1'>
+      <div className="priceCardplan">
+        <div className="priceCol1">
           <h3>FREE Plan</h3>
-          <h5 className='textSecondary'>End Date: 10 Nov 2023</h5>
+          <h5 className="textSecondary">End Date: 10 Nov 2023</h5>
         </div>
-        <div className='priceCol2'>
+        <div className="priceCol2">
           <h3>Number of Backtests</h3>
-          <h5 className='pricebacktest'>10000</h5>
+          <h5 className="pricebacktest">10000</h5>
         </div>
-        <div className='priceCol3'>
+        <div className="priceCol3">
           <h3>AI Strategies P&L</h3>
-          <h5 className='pricePL'>1000 (+5%)</h5>
+          <h5 className="pricePL">1000 (+5%)</h5>
         </div>
       </div>
       <h3>Upgrade Your Account</h3>
-      <h5 className='textSecondary'>(Please select an Upgrade Option.)</h5>
+      <h5 className="textSecondary">(Please select an Upgrade Option.)</h5>
       {getPricingPlansSwitcher()}
       {getPayFrequencySwitcher()}
       {getActualPlans()}
@@ -297,90 +297,90 @@ const PlanAndPricing: React.FC = () => {
 
 const styles = {
   claimBox: {
-    display: 'flex',
-    flexDirection: 'row' as const,
+    display: "flex",
+    flexDirection: "row" as const,
     backgroundColor: Theme.colors.blueTainted,
     color: Theme.colors.white,
     borderRadius: Theme.borderRadius,
   },
   advatages: {
-    display: 'flex',
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    margin: '10px 0',
+    display: "flex",
+    flexDirection: "row" as const,
+    alignItems: "center" as const,
+    margin: "10px 0",
   },
   divider: {
-    width: '80%',
+    width: "80%",
     backgroundColor: Theme.colors.grey70,
-    left: '10%',
+    left: "10%",
     height: 2,
   },
   yellowButton: {
     backgroundColor: Theme.colors.yellow,
     borderRadius: Theme.borderRadius,
     color: Theme.colors.black,
-    padding: '10px 24px',
+    padding: "10px 24px",
     margin: 10,
-    '&:hover': {
-      backgroundColor: 'rgb(206 186 115)',
+    "&:hover": {
+      backgroundColor: "rgb(206 186 115)",
     },
   },
   eachPlanBox: {
     borderRadius: Theme.borderRadius,
     backgroundColor: Theme.colors.white,
     width: 320,
-    boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
-    padding: '20px 14px',
-    textAlign: 'center' as const,
+    boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+    padding: "20px 14px",
+    textAlign: "center" as const,
     margin: 10,
   },
   freePlanBox: {
     borderRadius: Theme.borderRadius,
     backgroundColor: Theme.colors.white,
     width: 320,
-    boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
-    padding: '6px 10px',
-    textAlign: 'center' as const,
+    boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+    padding: "6px 10px",
+    textAlign: "center" as const,
     margin: 10,
-    height: 'fit-content',
+    height: "fit-content",
   },
   currentPlanPremium: {
-    color: 'white',
-    backgroundColor: 'rgba(39, 71, 221, 1)',
-    borderRadius: '22px',
-    width: 'fit-content',
-    padding: '4px',
-    top: '-34px',
-    left: '101px',
+    color: "white",
+    backgroundColor: "rgba(39, 71, 221, 1)",
+    borderRadius: "22px",
+    width: "fit-content",
+    padding: "4px",
+    top: "-34px",
+    left: "101px",
   },
   currentPlan: {
-    color: 'white',
-    backgroundColor: 'rgba(39, 71, 221, 1)',
-    borderRadius: '22px',
-    width: 'fit-content',
-    padding: '4px',
-    top: '-22px',
-    left: '101px',
+    color: "white",
+    backgroundColor: "rgba(39, 71, 221, 1)",
+    borderRadius: "22px",
+    width: "fit-content",
+    padding: "4px",
+    top: "-22px",
+    left: "101px",
   },
   expandingContainer: {
-    display: 'flex',
-    flexDirection: 'row' as const,
-    justifyContent: 'center' as const,
-    alignItems: 'center' as const,
+    display: "flex",
+    flexDirection: "row" as const,
+    justifyContent: "center" as const,
+    alignItems: "center" as const,
   },
   freqText: {
     margin: 24,
     fontSize: Theme.fontSizes.h3,
   },
   frequencyBox: {
-    display: 'flex',
-    flexDirection: 'row' as const,
-    justifyContent: 'center' as const,
-    alignItems: 'center' as const,
-    margin: 'auto 24px 0 24px',
+    display: "flex",
+    flexDirection: "row" as const,
+    justifyContent: "center" as const,
+    alignItems: "center" as const,
+    margin: "auto 24px 0 24px",
   },
   descText: {
-    textAlign: 'center' as const,
+    textAlign: "center" as const,
   },
   selectedButton: {
     backgroundColor: Theme.colors.white,
@@ -388,24 +388,24 @@ const styles = {
     margin: 0,
   },
   buttonBox: {
-    margin: 'auto 24px 0 24px',
+    margin: "auto 24px 0 24px",
     backgroundColor: Theme.colors.blueSolid,
     borderRadius: Theme.borderRadius,
     padding: 0,
   },
   hintText: {
-    textAlign: 'center' as const,
+    textAlign: "center" as const,
     backgroundColor: Theme.colors.white,
     padding: 10,
     borderRadius: 10,
-    border: '1px dashed ' + Theme.colors.black70,
+    border: "1px dashed " + Theme.colors.black70,
     fontSize: Theme.fontSizes.h6,
     maxWidth: 126,
   },
   buttonSwitcher: {
-    display: 'flex',
-    flexDirection: 'row' as const,
-    justifyContent: 'center' as const,
+    display: "flex",
+    flexDirection: "row" as const,
+    justifyContent: "center" as const,
   },
 };
 

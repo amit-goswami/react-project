@@ -4,7 +4,7 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 20px;
   background: #f3f6ff;
   letter-spacing: 0.42px;
@@ -17,7 +17,7 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 20px;
   background: #fff;
   letter-spacing: 0.42px;
@@ -207,7 +207,7 @@
 
 .strategy-title-style-responsive {
   gap: 13px;
-  font-family: 'poppins';
+  font-family: "poppins";
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -324,7 +324,7 @@ input::placeholder {
   margin-top: 20px;
   border-radius: 3.31px;
   background: #f3f6ff;
-  font-family: 'Poppins-Regular', Helvetica;
+  font-family: "Poppins-Regular", Helvetica;
   width: auto;
   flex-direction: column;
   transition: box-shadow 0.3s ease-in-out;
@@ -343,7 +343,7 @@ input::placeholder {
   margin-top: 20px;
   border-radius: 3.31px;
   background: #fff;
-  font-family: 'Poppins-Regular', Helvetica;
+  font-family: "Poppins-Regular", Helvetica;
   width: 810px;
 
   transition: box-shadow 0.3s ease-in-out;

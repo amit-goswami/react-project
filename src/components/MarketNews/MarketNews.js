@@ -1,6 +1,6 @@
 import React from "react";
 import "./MarketNews.css";
-import {LatestMarketNewsData, PopularMarketNewsData} from "./MarketNewsData";
+import { LatestMarketNewsData, PopularMarketNewsData } from "./MarketNewsData";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Header, { CurrentPage } from "../Header/Header";
@@ -321,8 +321,13 @@ function MarketNews() {
           <div className="promo-box-container">
             <div className="promo-box">
               <div className="promo-box-parts">
-                <div className="promo-box-parts-text1">100 users are using moneyy.ai now. </div>
-                <div className="promo-box-parts-text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                <div className="promo-box-parts-text1">
+                  100 users are using moneyy.ai now.{" "}
+                </div>
+                <div className="promo-box-parts-text2">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
               </div>
               <div className="promo-box-parts">
                 <button>Read more</button>
@@ -366,7 +371,6 @@ function MarketNews() {
             </button>
           </div>
         </div>
-        
       </div>
       <div className="marketnews-footer-container">
         <Footer />

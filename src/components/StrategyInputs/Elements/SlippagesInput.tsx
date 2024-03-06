@@ -19,7 +19,7 @@ const Slippagesinput: React.FC<Props> = ({ slippage, label, onChange }) => {
     menuItemsList.push(
       <MenuItem key={1} value={"1"}>
         1%
-      </MenuItem>
+      </MenuItem>,
     );
     return menuItemsList;
   };

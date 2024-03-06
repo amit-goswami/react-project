@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Theme, ThemeTypes } from '../../Utils/Constants';
-import { InputAdornment, TextField } from '@mui/material';
-import StateInputField from './StateInputField';
-import ProfilePic from '../../assets/images/profilePic.jpg';
-import { FetchUserDetails } from '../../API/ProfileAPI';
-import Loader from '../Dialogs/Loader';
+import React, { useEffect, useState } from "react";
+import { Theme, ThemeTypes } from "../../Utils/Constants";
+import { InputAdornment, TextField } from "@mui/material";
+import StateInputField from "./StateInputField";
+import ProfilePic from "../../assets/images/profilePic.jpg";
+import { FetchUserDetails } from "../../API/ProfileAPI";
+import Loader from "../Dialogs/Loader";
 const MyProfile: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,7 +46,7 @@ const MyProfile: React.FC = () => {
     // };
     const fetchUserData = async () => {
       try {
-        const userData = await FetchUserDetails('9949465818', 'Titan#12');
+        const userData = await FetchUserDetails("9949465818", "Titan#12");
         console.log(userData);
 
         setUserData(userData);
@@ -62,11 +62,11 @@ const MyProfile: React.FC = () => {
   function formatDate(dateString: any): string {
     const date = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
     };
-    return date.toLocaleDateString('en-GB', options);
+    return date.toLocaleDateString("en-GB", options);
   }
 
   if (isLoading) {
@@ -80,51 +80,51 @@ const MyProfile: React.FC = () => {
       </p>
       <div style={styles.container}>
         <div style={styles.leftContainer}>
-          <img src={ProfilePic} alt='logo' style={styles.profileImageStyle} />
+          <img src={ProfilePic} alt="logo" style={styles.profileImageStyle} />
         </div>
         <div style={styles.rightContainer}>
           <p style={styles.title}>General Information</p>
           <TextField
             style={styles.textInput}
-            id='name'
-            label='Name'
-            variant='outlined'
-            size='small'
-            value={userData?.name || ''}
+            id="name"
+            label="Name"
+            variant="outlined"
+            size="small"
+            value={userData?.name || ""}
           />
           <TextField
             style={styles.textInput}
-            id='phone'
-            label='Phone'
-            variant='outlined'
-            value={userData?.phone_number || ''}
-            size='small'
+            id="phone"
+            label="Phone"
+            variant="outlined"
+            value={userData?.phone_number || ""}
+            size="small"
             InputProps={{
               startAdornment: (
-                <InputAdornment position='start'>+91</InputAdornment>
+                <InputAdornment position="start">+91</InputAdornment>
               ),
             }}
           />
           <TextField
             style={styles.textInput}
-            id='email'
-            label='Email'
-            variant='outlined'
-            size='small'
-            value={userData?.email || ''}
+            id="email"
+            label="Email"
+            variant="outlined"
+            size="small"
+            value={userData?.email || ""}
           />
           <TextField
             style={styles.textInput}
-            id='city'
-            label='City'
-            variant='outlined'
-            size='small'
+            id="city"
+            label="City"
+            variant="outlined"
+            size="small"
           />
           <div style={{ ...styles.textInput }}>
             <StateInputField
-              selectedState='AP'
+              selectedState="AP"
               onChange={(key) => {
-                console.log('state changed', key);
+                console.log("state changed", key);
               }}
             />
           </div>
@@ -132,37 +132,37 @@ const MyProfile: React.FC = () => {
           <p style={styles.title}>Information for Invoices</p>
           <TextField
             style={styles.textInput}
-            id='companyName'
-            label='CompanyName'
-            variant='outlined'
-            size='small'
+            id="companyName"
+            label="CompanyName"
+            variant="outlined"
+            size="small"
           />
           <TextField
             style={styles.textInput}
-            id='GstNo'
-            label='GST No.'
-            variant='outlined'
-            size='small'
+            id="GstNo"
+            label="GST No."
+            variant="outlined"
+            size="small"
           />
           <TextField
             style={styles.textInput}
-            id='city'
-            label='City'
-            variant='outlined'
-            size='small'
+            id="city"
+            label="City"
+            variant="outlined"
+            size="small"
           />
           <TextField
             style={styles.textInput}
-            id='pincode'
-            label='Pincode'
-            variant='outlined'
-            size='small'
+            id="pincode"
+            label="Pincode"
+            variant="outlined"
+            size="small"
           />
           <div style={{ ...styles.textInput }}>
             <StateInputField
-              selectedState='AP'
+              selectedState="AP"
               onChange={(key) => {
-                console.log('state changed', key);
+                console.log("state changed", key);
               }}
             />
           </div>
@@ -176,8 +176,8 @@ const MyProfile: React.FC = () => {
 
 const styles = {
   textInput: {
-    width: '40%',
-    minWidth: '240px',
+    width: "40%",
+    minWidth: "240px",
     margin: Theme.gapSmall,
   },
   button: {
@@ -200,17 +200,17 @@ const styles = {
     marginRight: Theme.gapSmall,
   },
   profileImageStyle: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   rightContainer: {
     flex: 1,
   },
   container: {
-    display: 'flex' as const,
-    flexDirection: 'row' as const,
-    justifyContent: 'space-between' as const,
-    alignItems: 'flex-start' as const,
+    display: "flex" as const,
+    flexDirection: "row" as const,
+    justifyContent: "space-between" as const,
+    alignItems: "flex-start" as const,
   },
   memberSince: {
     fontSize: Theme.fontSizes.h4,

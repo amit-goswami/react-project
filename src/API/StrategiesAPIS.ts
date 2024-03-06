@@ -31,25 +31,25 @@ interface Strategy {
 }
 
 export async function SubscribeToStrategyAPI(
-  requestData: SubscribeToStrategyRequest
+  requestData: SubscribeToStrategyRequest,
 ): Promise<SubscribeToStrategyResponse> {
   // const apiUrl = 'https://api.moneyy.ai/api/SubscribeToStrategy/';
-  const apiUrl = 'https://api.moneyy.ai/api/SubscribeStrategy/';
+  const apiUrl = "https://api.moneyy.ai/api/SubscribeStrategy/";
 
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
-    throw new Error('Access token not found in local storage');
+    throw new Error("Access token not found in local storage");
   }
 
   const myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
-  myHeaders.append('Authorization', `Bearer ${accessToken}`);
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Authorization", `Bearer ${accessToken}`);
 
   const requestOptions: RequestInit = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: JSON.stringify(requestData),
-    redirect: 'follow',
+    redirect: "follow",
   };
 
   try {
@@ -59,7 +59,7 @@ export async function SubscribeToStrategyAPI(
     if (response.ok) {
       return responseData;
     } else {
-      throw new Error(responseData.message || 'API request failed');
+      throw new Error(responseData.message || "API request failed");
     }
   } catch (error: any) {
     throw new Error(`Error: ${error.message}`);
@@ -67,14 +67,14 @@ export async function SubscribeToStrategyAPI(
 }
 
 export async function MockRunTestsAPI(options: APICallOptions): Promise<any> {
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem("accessToken");
 
   try {
-    const response = await fetch('https://api.moneyy.ai/api/mock/runtests', {
-      method: 'POST',
+    const response = await fetch("https://api.moneyy.ai/api/mock/runtests", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + accessToken,
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + accessToken,
       },
       body: JSON.stringify(options),
     });
@@ -82,10 +82,10 @@ export async function MockRunTestsAPI(options: APICallOptions): Promise<any> {
     if (response.ok) {
       return await response.json();
     } else {
-      throw new Error('Network response was not ok.');
+      throw new Error("Network response was not ok.");
     }
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     throw error;
   }
 }

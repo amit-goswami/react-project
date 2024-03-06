@@ -2,7 +2,7 @@ import { IResultsAPIInput } from "../API/API.interface";
 import { IInputsPageResult } from "../components/StrategyInputs/InputsPage";
 
 export function convertTestInputsTypes(
-  input: IInputsPageResult
+  input: IInputsPageResult,
 ): IResultsAPIInput {
   return {
     fromDate: toDateFormat(input.strategy.fromDate),

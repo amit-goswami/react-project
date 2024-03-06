@@ -3,11 +3,11 @@ import { Styles, Theme } from "../Utils/Constants";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import youtube  from   '../assets/images/youtube.png';
-import xsocial  from   '../assets/images/x.png';
-import linkedin  from   '../assets/images/linkedin.png';
-import instagram  from   '../assets/images/instagram.png';
-import facebook  from   '../assets/images/facebook.svg';
+import youtube from "../assets/images/youtube.png";
+import xsocial from "../assets/images/x.png";
+import linkedin from "../assets/images/linkedin.png";
+import instagram from "../assets/images/instagram.png";
+import facebook from "../assets/images/facebook.svg";
 
 import useWindowSize from "./Hooks/useWindowSize";
 import { useNavigate } from "react-router-dom";
@@ -21,9 +21,17 @@ const Footer: React.FC = () => {
       <img
         src="./images/logo.svg"
         alt="logo"
-        style={windowSize <= 540 ? styles.profileImageStyleResponsive : styles.profileImageStyle}
+        style={
+          windowSize <= 540
+            ? styles.profileImageStyleResponsive
+            : styles.profileImageStyle
+        }
       />
-      <p style={windowSize <= 540 ? styles.webpageDescResponsive : styles.webpageDesc}>
+      <p
+        style={
+          windowSize <= 540 ? styles.webpageDescResponsive : styles.webpageDesc
+        }
+      >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
         aliquam molestias nam neque obcaecati vero maxime odit adipisci
         praesentium fugit alias deserunt animi molestiae aut commodi dicta
@@ -34,71 +42,183 @@ const Footer: React.FC = () => {
 
   const ExploreSection = (
     <div style={styles.column}>
-      <p style={windowSize <= 540? Styles.h3TextResponsive : Styles.h3Text}>Explore</p>
+      <p style={windowSize <= 540 ? Styles.h3TextResponsive : Styles.h3Text}>
+        Explore
+      </p>
 
-      <p onClick={()=> {
-        navigate("/backtesting");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>Backtesting</p>
-      <p onClick={()=> {
-        navigate("/strategy");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>AI Strategies</p>
-      <p onClick={()=> {
-        navigate("/market-news");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>Market news</p>
-      <p onClick={()=> {
-        navigate("/learn");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>Learn</p>
-      <p onClick={()=> {
-        navigate("/pricing");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>Pricing</p>
-      <p onClick={()=> {
-        navigate("/leaderboard");
-      }} style={windowSize <= 540? { fontSize: Theme.fontSizes.h5, cursor: "pointer" } : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }}>Leaderboard</p>
+      <p
+        onClick={() => {
+          navigate("/backtesting");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        Backtesting
+      </p>
+      <p
+        onClick={() => {
+          navigate("/strategy");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        AI Strategies
+      </p>
+      <p
+        onClick={() => {
+          navigate("/market-news");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        Market news
+      </p>
+      <p
+        onClick={() => {
+          navigate("/learn");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        Learn
+      </p>
+      <p
+        onClick={() => {
+          navigate("/pricing");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        Pricing
+      </p>
+      <p
+        onClick={() => {
+          navigate("/leaderboard");
+        }}
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5, cursor: "pointer" }
+            : { fontSize: Theme.fontSizes.h4, cursor: "pointer" }
+        }
+      >
+        Leaderboard
+      </p>
     </div>
   );
 
   const CompanySection = (
     <div style={styles.column}>
-      <p style={windowSize <= 540? Styles.h3TextResponsive : Styles.h3Text}>Company</p>
-      <p style={windowSize <= 540? { fontSize: Theme.fontSizes.h5 } : { fontSize: Theme.fontSizes.h4 }}>Terms of Use</p>
-      <p style={windowSize <= 540? { fontSize: Theme.fontSizes.h5 } : { fontSize: Theme.fontSizes.h4 }}>Privacy Policy</p>
-      <p style={windowSize <= 540? { fontSize: Theme.fontSizes.h5 } : { fontSize: Theme.fontSizes.h4 }}>Risk Disclosure</p>
+      <p style={windowSize <= 540 ? Styles.h3TextResponsive : Styles.h3Text}>
+        Company
+      </p>
+      <p
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5 }
+            : { fontSize: Theme.fontSizes.h4 }
+        }
+      >
+        Terms of Use
+      </p>
+      <p
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5 }
+            : { fontSize: Theme.fontSizes.h4 }
+        }
+      >
+        Privacy Policy
+      </p>
+      <p
+        style={
+          windowSize <= 540
+            ? { fontSize: Theme.fontSizes.h5 }
+            : { fontSize: Theme.fontSizes.h4 }
+        }
+      >
+        Risk Disclosure
+      </p>
     </div>
   );
 
   const ContactUsSection = (
-    <div style={windowSize <= 540? { ...styles.column, ...{fontSize: Theme.fontSizes.h5} } : { ...styles.column }}>
-      <p style={windowSize <= 540? Styles.h3TextResponsive : Styles.h3Text}>Contact Us</p>
+    <div
+      style={
+        windowSize <= 540
+          ? { ...styles.column, ...{ fontSize: Theme.fontSizes.h5 } }
+          : { ...styles.column }
+      }
+    >
+      <p style={windowSize <= 540 ? Styles.h3TextResponsive : Styles.h3Text}>
+        Contact Us
+      </p>
       <p style={styles.boxIcon}>
-        <PhoneIcon style={windowSize <= 540? {...styles.icon, ...{fontSize: "14px", marginRight: "4px"}} : styles.icon} />
+        <PhoneIcon
+          style={
+            windowSize <= 540
+              ? { ...styles.icon, ...{ fontSize: "14px", marginRight: "4px" } }
+              : styles.icon
+          }
+        />
         +91-1234567890
       </p>
       <p style={styles.boxIcon}>
-        <EmailIcon style={windowSize <= 540? {...styles.icon, ...{fontSize: "14px", marginRight: "4px"}} : styles.icon} /> contact@moneyy.ai
+        <EmailIcon
+          style={
+            windowSize <= 540
+              ? { ...styles.icon, ...{ fontSize: "14px", marginRight: "4px" } }
+              : styles.icon
+          }
+        />{" "}
+        contact@moneyy.ai
       </p>
       <p style={styles.boxIcon}>
-        <LocationOnIcon style={windowSize <= 540? {...styles.icon, ...{fontSize: "14px", marginRight: "4px"}} : styles.icon} /> India
+        <LocationOnIcon
+          style={
+            windowSize <= 540
+              ? { ...styles.icon, ...{ fontSize: "14px", marginRight: "4px" } }
+              : styles.icon
+          }
+        />{" "}
+        India
       </p>
     </div>
   );
 
   const socialListing = (
     <div style={{ ...styles.column }}>
-      <p style={windowSize <= 540? Styles.h3TextResponsive : Styles.h3Text}>Social</p>
-      <p style={styles.boxIcon}>
-        <img src={xsocial} style={styles.social} alt="x"/>
+      <p style={windowSize <= 540 ? Styles.h3TextResponsive : Styles.h3Text}>
+        Social
       </p>
       <p style={styles.boxIcon}>
-        <img src={instagram} style={styles.social} alt="instagram"/>
+        <img src={xsocial} style={styles.social} alt="x" />
       </p>
       <p style={styles.boxIcon}>
-        <img src={facebook} style={styles.social} alt="facebook"/>
+        <img src={instagram} style={styles.social} alt="instagram" />
       </p>
       <p style={styles.boxIcon}>
-        <img src={linkedin} style={styles.social} alt="linkedin"/>
+        <img src={facebook} style={styles.social} alt="facebook" />
       </p>
       <p style={styles.boxIcon}>
-        <img src={youtube} style={styles.social} alt="youtube"/>
+        <img src={linkedin} style={styles.social} alt="linkedin" />
+      </p>
+      <p style={styles.boxIcon}>
+        <img src={youtube} style={styles.social} alt="youtube" />
       </p>
     </div>
   );
@@ -136,15 +256,15 @@ const Footer: React.FC = () => {
                 : styles.footerColumns
         }
       >
-        {windowSize > 540
-          ? <>
+        {windowSize > 540 ? (
+          <>
             {websiteDescription}
             {ExploreSection}
             {CompanySection}
             {ContactUsSection}
             {socialListing}
           </>
-          :
+        ) : (
           <>
             {websiteDescription}
             <div style={styles.footerTwoCol}>
@@ -156,9 +276,15 @@ const Footer: React.FC = () => {
               {ContactUsSection}
             </div>
           </>
-        }
+        )}
       </div>
-      <div style={windowSize <= 540 ? styles.footerCopyrightResponsive : styles.footerCopyright}>
+      <div
+        style={
+          windowSize <= 540
+            ? styles.footerCopyrightResponsive
+            : styles.footerCopyright
+        }
+      >
         <p>&copy; 2023 Moneyy.ai Pvt Ltd. All rights reserved.</p>
       </div>
     </footer>
@@ -282,8 +408,8 @@ const styles = {
     margin: 0,
   },
   social: {
-    width: 20
-  }
+    width: 20,
+  },
 };
 
 export default Footer;

@@ -2,10 +2,10 @@ import React from "react";
 import "./LearnMoreAboutLeaderboard.css";
 import Header, { CurrentPage } from "../Header/Header";
 import Footer from "../Footer";
-import { ReactComponent as Beginner } from '../../assets/images/beginner.svg';
-import { ReactComponent as First } from '../../assets/images/first.svg';
-import { ReactComponent as Second } from '../../assets/images/second.svg';
-import { ReactComponent as Pro } from '../../assets/images/pro.svg';
+import { ReactComponent as Beginner } from "../../assets/images/beginner.svg";
+import { ReactComponent as First } from "../../assets/images/first.svg";
+import { ReactComponent as Second } from "../../assets/images/second.svg";
+import { ReactComponent as Pro } from "../../assets/images/pro.svg";
 
 function LearnMoreAboutLeaderboard() {
   function Level(props) {
@@ -17,9 +17,7 @@ function LearnMoreAboutLeaderboard() {
       <div className="learn-more-about-leaderboard-level">
         <div className="learn-more-about-leaderboard-level-inner">
           <div className="learn-more-about-leaderboard-level-part learn-more-about-leaderboard-level-part-img">
-            <div className="learn-more-about-leaderboard-img">
-              {img}
-            </div>
+            <div className="learn-more-about-leaderboard-img">{img}</div>
             <div className="learn-more-about-leaderboard-level-name">
               {name}
             </div>
@@ -56,7 +54,7 @@ function LearnMoreAboutLeaderboard() {
       </div>
       <div className="learn-more-about-leaderboard-level-container">
         <Level
-          img={<Beginner/>}
+          img={<Beginner />}
           name={"Beginner"}
           overview={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
@@ -69,7 +67,7 @@ function LearnMoreAboutLeaderboard() {
           ]}
         />
         <Level
-          img={<First/>}
+          img={<First />}
           name={"Level 1"}
           overview={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
@@ -82,7 +80,7 @@ function LearnMoreAboutLeaderboard() {
           ]}
         />
         <Level
-          img={<Second/>}
+          img={<Second />}
           name={"Level 2"}
           overview={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
@@ -95,7 +93,7 @@ function LearnMoreAboutLeaderboard() {
           ]}
         />
         <Level
-          img={<Pro/>}
+          img={<Pro />}
           name={"Pro"}
           overview={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "

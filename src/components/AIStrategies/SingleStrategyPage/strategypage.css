@@ -9,7 +9,7 @@
   background: #f3f6ff;
   letter-spacing: 0.42px;
   position: relative;
-  font-family: 'Poppins-Regular', Helvetica;
+  font-family: "Poppins-Regular", Helvetica;
 }
 
 .aistrategy-page-container-responsive {
@@ -23,7 +23,7 @@
   background: #fff;
   letter-spacing: 0.42px;
   position: relative;
-  font-family: 'Poppins-Regular', Helvetica;
+  font-family: "Poppins-Regular", Helvetica;
 }
 
 .card-container {
@@ -82,7 +82,7 @@
   margin-top: 20px;
   border-radius: 3.31px;
   background: #f3f6ff;
-  font-family: 'Poppins-Regular', Helvetica;
+  font-family: "Poppins-Regular", Helvetica;
   width: auto;
   flex-direction: column;
   transition: box-shadow 0.3s ease-in-out;
@@ -547,7 +547,7 @@
   }
 }
 
-.strategyMetrics{
+.strategyMetrics {
   background-color: #f3f6ff;
   display: flex;
   flex-direction: column;
@@ -555,10 +555,9 @@
   align-items: center;
   /* padding: 0 9rem; */
 }
-.graphContainer{
+.graphContainer {
   background-color: #fff;
   padding: 4px 10px;
   margin-bottom: 3rem;
-  width: 90%;  
+  width: 90%;
 }
-

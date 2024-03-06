@@ -12,7 +12,6 @@ export interface OrderDetails {
   Direction: string;
   ExitAveragePrice: string | null;
   PnL: string | null;
-  strategy_id?: string;
 }
 
 export interface UserLiveTradeAPIInterface {
@@ -45,7 +44,7 @@ export interface SubscriptionDetailInterface {
 
 export async function LiveTodayKillAPI(
   userId: string,
-  strategyId: string
+  strategyId: string,
 ): Promise<ApiResponse> {
   try {
     const requestBody = {
@@ -54,37 +53,37 @@ export async function LiveTodayKillAPI(
     };
 
     const response = await fetch(
-      'https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/user-kill-switch',
+      "https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/user-kill-switch",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(requestBody),
-      }
+      },
     );
 
     if (!response.ok) {
-      throw new Error('Failed to fetch');
+      throw new Error("Failed to fetch");
     }
 
     const responseData = await response.json();
     return responseData;
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     throw error;
   }
 }
 
 export async function subscriptionPauseResumeAPI(
-  strategyId: string
+  strategyId: string,
 ): Promise<string> {
-  const apiUrl = 'https://api.moneyy.ai/api/subscription_pause_resume/';
+  const apiUrl = "https://api.moneyy.ai/api/subscription_pause_resume/";
 
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem("accessToken");
 
   if (!accessToken) {
-    throw new Error('Access token not found in local storage');
+    throw new Error("Access token not found in local storage");
   }
 
   const requestBody = {
@@ -93,9 +92,9 @@ export async function subscriptionPauseResumeAPI(
 
   try {
     const response = await fetch(apiUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(requestBody),
@@ -116,20 +115,20 @@ export async function subscriptionPauseResumeAPI(
 
 export async function getSubscriptionDetails(): Promise<SubscriptionDetailInterface> {
   // const apiUrl = 'https://api.moneyy.ai/api/get_subscription_details/';
-  const apiUrl = 'https://api.moneyy.ai/api/user/subscription/details/';
+  const apiUrl = "https://api.moneyy.ai/api/user/subscription/details/";
 
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
-    throw new Error('Access token not found in local storage');
+    throw new Error("Access token not found in local storage");
   }
 
   const myHeaders = new Headers();
-  myHeaders.append('Authorization', `Bearer ${accessToken}`);
+  myHeaders.append("Authorization", `Bearer ${accessToken}`);
 
   const requestOptions: RequestInit = {
-    method: 'GET',
+    method: "GET",
     headers: myHeaders,
-    redirect: 'follow',
+    redirect: "follow",
   };
 
   try {
@@ -139,7 +138,7 @@ export async function getSubscriptionDetails(): Promise<SubscriptionDetailInterf
     if (response.ok) {
       return responseData;
     } else {
-      throw new Error('API request failed');
+      throw new Error("API request failed");
     }
   } catch (error: any) {
     throw new Error(`Error: ${error.message}`);
@@ -148,19 +147,19 @@ export async function getSubscriptionDetails(): Promise<SubscriptionDetailInterf
 
 export async function UserLiveTradeAPI(
   userId: string,
-  strategyId: string
+  strategyId: string,
 ): Promise<UserLiveTradeAPIInterface> {
   const url =
-    'https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/user-live-trade';
+    "https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/user-live-trade";
   const requestBody = JSON.stringify({
     UserId: userId,
     strategyId: strategyId,
   });
   try {
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: requestBody,
     });
@@ -172,7 +171,7 @@ export async function UserLiveTradeAPI(
     const responseData: UserLiveTradeAPIInterface = await response.json();
     return responseData;
   } catch (error) {
-    console.error('Error fetaching data:', error);
+    console.error("Error fetaching data:", error);
     throw error;
   }
 }
@@ -182,18 +181,18 @@ class WebSocketService {
 
   public connect(
     strategyId: string,
-    onMessageCallback: (data: any) => void
+    onMessageCallback: (data: any) => void,
   ): void {
     // const url = `ws://15.206.75.39:8765/${strategyId}`;
     const url = `ws://13.233.31.7:8765/strat_0008`;
     this.socket = new WebSocket(url);
 
-    this.socket.addEventListener('message', (event) => {
+    this.socket.addEventListener("message", (event) => {
       try {
         const parsedData = JSON.parse(event.data);
         onMessageCallback(parsedData);
       } catch (error) {
-        console.error('Error parsing WebSocket data:', error);
+        console.error("Error parsing WebSocket data:", error);
       }
     });
   }

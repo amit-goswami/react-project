@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './FAQAccordion.css';
+import "./FAQAccordion.css";
 
 interface AccordionItemProps {
   question: string;
@@ -17,12 +17,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer }) => {
     <div className="accordion-item">
       <div className="accordion-summary" onClick={toggleAccordion}>
         <div className="summaryContent">
-        <div className="question">{question}</div>
-        <div className="icon">{isOpen ? "-" : "+"}</div>
+          <div className="question">{question}</div>
+          <div className="icon">{isOpen ? "-" : "+"}</div>
         </div>
         {isOpen && <div className="accordion-content">{answer}</div>}
       </div>
-      
     </div>
   );
 };

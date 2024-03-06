@@ -12,7 +12,7 @@ export default class TestResultsParser {
   public constructor(data: BackTestAPIResponse) {
     this.rawResults = data;
     this.resultsLength = Object.keys(
-      this.rawResults.dailyBackTestResults
+      this.rawResults.dailyBackTestResults,
     ).length;
   }
 
@@ -26,7 +26,7 @@ export default class TestResultsParser {
 
   public getStrategyLegs(): IResultsAPILegs[] {
     return this.rawResults.mockTestAPIRequest.strategies.sort(
-      (a, b) => a.sequence - b.sequence
+      (a, b) => a.sequence - b.sequence,
     );
   }
 

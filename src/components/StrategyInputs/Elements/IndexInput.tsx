@@ -19,7 +19,7 @@ const IndexInput: React.FC<Props> = ({ defaultIndex, label, onChange }) => {
     menuItemsList.push(
       <MenuItem key={1} value={"NIFTYBANK"}>
         Banknifty
-      </MenuItem>
+      </MenuItem>,
     );
     return menuItemsList;
   };

@@ -1,15 +1,15 @@
-import trade from '../../assets/images/trade.jpg';
+import trade from "../../assets/images/trade.jpg";
 
 export const AIStrategiesdata = [
   {
     id: 1,
     img: trade,
-    title: 'Startegy 1',
-    badge1: 'New',
-    riskBadge: 'High Risk',
+    title: "Startegy 1",
+    badge1: "New",
+    riskBadge: "High Risk",
     cardDesc:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.',
-    cardAuthor: 'Windmill',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.",
+    cardAuthor: "Windmill",
     minCapital: 100000,
     capDeploy: 50000,
     cagr: 10.78,
@@ -17,11 +17,11 @@ export const AIStrategiesdata = [
   {
     id: 2,
     img: trade,
-    title: 'Startegy 2',
-    badge1: 'Popular',
-    riskBadge: 'Low Risk',
-    cardDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    cardAuthor: 'Windmill',
+    title: "Startegy 2",
+    badge1: "Popular",
+    riskBadge: "Low Risk",
+    cardDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    cardAuthor: "Windmill",
     minCapital: 100000,
     capDeploy: 50000,
     cagr: 15.78,
@@ -29,11 +29,11 @@ export const AIStrategiesdata = [
   {
     id: 3,
     img: trade,
-    title: 'Startegy 3',
-    badge1: 'High Return',
-    riskBadge: 'Medium Risk',
-    cardDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    cardAuthor: 'Windmill',
+    title: "Startegy 3",
+    badge1: "High Return",
+    riskBadge: "Medium Risk",
+    cardDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    cardAuthor: "Windmill",
     minCapital: 100000,
     capDeploy: 50000,
     cagr: 34.78,
@@ -41,11 +41,11 @@ export const AIStrategiesdata = [
   {
     id: 4,
     img: trade,
-    title: 'Startegy 4',
-    badge1: 'New',
-    riskBadge: 'High Risk',
-    cardDesc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    cardAuthor: 'Windmill',
+    title: "Startegy 4",
+    badge1: "New",
+    riskBadge: "High Risk",
+    cardDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    cardAuthor: "Windmill",
     minCapital: 100000,
     capDeploy: 50000,
     cagr: 10.78,
@@ -54,11 +54,11 @@ export const AIStrategiesdata = [
 
 async function getStrategyList(): Promise<any[]> {
   const url =
-    'https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/strategy-list';
+    "https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/strategy-list";
   const requestOptions: RequestInit = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({}),
   };
@@ -71,23 +71,23 @@ async function getStrategyList(): Promise<any[]> {
     const responseData = await response.json();
     return responseData.response_data;
   } catch (error) {
-    console.error('Error');
+    console.error("Error");
     return [];
   }
 }
 
 async function getStrategyDetails(id: any): Promise<any> {
   const url =
-    'https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/strategy-details';
+    "https://bhfgfr2f63.execute-api.ap-south-1.amazonaws.com/dev/strategy-details";
 
   const requestBody = {
     strategyId: id,
   };
 
   const requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(requestBody),
   };
@@ -97,7 +97,7 @@ async function getStrategyDetails(id: any): Promise<any> {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching strategy details:', error);
+    console.error("Error fetching strategy details:", error);
     throw error;
   }
 }

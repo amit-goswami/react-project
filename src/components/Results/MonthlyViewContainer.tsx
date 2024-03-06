@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Theme } from "../../Utils/Constants";
 import { getPercentages } from "../../Utils/Converters";
 
@@ -9,7 +9,8 @@ interface Props {
 }
 
 const MonthlyViewContainer: React.FC<Props> = (props) => {
-  const [isWidthLessThan1350, setIsWidthLessThan1350] = useState<boolean>(false);
+  const [isWidthLessThan1350, setIsWidthLessThan1350] =
+    useState<boolean>(false);
   const months = [
     "January",
     "February",
@@ -26,19 +27,20 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
   ];
 
   const formatNumber = (amount: string): string => {
-    const suffixes = ['', 'K', 'M', 'B', 'T'];
-    const numberAmount = parseFloat(amount.replace(/,/g, ''));
+    const suffixes = ["", "K", "M", "B", "T"];
+    const numberAmount = parseFloat(amount.replace(/,/g, ""));
     const isNegative = numberAmount < 0;
     const absoluteAmount = Math.abs(numberAmount);
     if (absoluteAmount >= 1000) {
-        const suffixIndex = Math.floor(Math.log10(absoluteAmount) / 3);
-        const shortValue = (absoluteAmount / Math.pow(1000, suffixIndex)).toFixed(1);
-        return (isNegative ? '-' : '') + shortValue + suffixes[suffixIndex];
+      const suffixIndex = Math.floor(Math.log10(absoluteAmount) / 3);
+      const shortValue = (absoluteAmount / Math.pow(1000, suffixIndex)).toFixed(
+        1,
+      );
+      return (isNegative ? "-" : "") + shortValue + suffixes[suffixIndex];
     } else {
-        return amount;
+      return amount;
     }
-};
-
+  };
 
   useEffect(() => {
     function handleResize() {
@@ -86,7 +88,13 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
   function getAllMonths() {
     return months.map((month) => {
       return (
-        <th key={month} style={{...styles.headerCell, padding: isWidthLessThan1350 ? '2px' : '6px'}}>
+        <th
+          key={month}
+          style={{
+            ...styles.headerCell,
+            padding: isWidthLessThan1350 ? "2px" : "6px",
+          }}
+        >
           {month.substring(0, 3)}
         </th>
       );
@@ -104,10 +112,18 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
     return months.map((month) => {
       const value = props.results[year][month];
       return (
-        <td style={{ ...styles.cellStyle, padding: isWidthLessThan1350 ? '2px' : '6px',...styles.rowTopBorder }} key={month}>
+        <td
+          style={{
+            ...styles.cellStyle,
+            padding: isWidthLessThan1350 ? "2px" : "6px",
+            ...styles.rowTopBorder,
+          }}
+          key={month}
+        >
           {value && (
             <p style={getClassName(value)}>
-              {value ? formatNumber(value.toFixed(2)) : 0} {getPerctAppendStr(value)}
+              {value ? formatNumber(value.toFixed(2)) : 0}{" "}
+              {getPerctAppendStr(value)}
             </p>
           )}
         </td>
@@ -127,7 +143,7 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
           key={totalValue}
           style={{
             ...styles.cellStyle,
-            padding: isWidthLessThan1350 ? '2px' : '6px',
+            padding: isWidthLessThan1350 ? "2px" : "6px",
             ...styles.rowTotalTopBorder,
             ...styles.totalRow,
           }}
@@ -147,7 +163,7 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
         <td
           style={{
             ...styles.headerCell,
-            padding: isWidthLessThan1350 ? '2px' : '6px',
+            padding: isWidthLessThan1350 ? "2px" : "6px",
             ...styles.rowTotalTopBorder,
             ...styles.totalColumn,
           }}
@@ -167,7 +183,7 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
     if (textOnly) {
       return {
         ...styles.valueBox,
-        padding: isWidthLessThan1350 ? '2px' : '6px',
+        padding: isWidthLessThan1350 ? "2px" : "6px",
         color: colorCode,
         fontSize: Theme.fontSizes.h4,
         fontWeight: Theme.fontWeight.semiBold,
@@ -175,7 +191,7 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
     }
     return {
       ...styles.valueBox,
-      padding: isWidthLessThan1350 ? '2px' : '6px',
+      padding: isWidthLessThan1350 ? "2px" : "6px",
       backgroundColor: colorCode + getBackgroundColorTranparency(digit),
       fontSize: Theme.fontSizes.h5,
     };
@@ -189,7 +205,7 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
           <td
             style={{
               ...styles.headerCell,
-              padding: isWidthLessThan1350 ? '2px' : '6px',
+              padding: isWidthLessThan1350 ? "2px" : "6px",
               ...styles.rowTopBorder,
               ...styles.yearColumn,
             }}
@@ -206,9 +222,15 @@ const MonthlyViewContainer: React.FC<Props> = (props) => {
     <table style={styles.tableStyle}>
       <thead>
         <tr>
-        <th style={{ ...styles.headerCell, padding: isWidthLessThan1350 ? '2px' : '6px', fontSize: Theme.fontSizes.h3 }}>
-  moneyy.ai
-</th>
+          <th
+            style={{
+              ...styles.headerCell,
+              padding: isWidthLessThan1350 ? "2px" : "6px",
+              fontSize: Theme.fontSizes.h3,
+            }}
+          >
+            moneyy.ai
+          </th>
           {getAllMonths()}
         </tr>
       </thead>
@@ -263,6 +285,5 @@ const styles = {
     borderRadius: Theme.borderRadius,
   },
 };
-
 
 export default MonthlyViewContainer;

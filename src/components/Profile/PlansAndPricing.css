@@ -1,28 +1,25 @@
-.priceCardplan{
-    display: grid;
-   grid-template-columns: repeat(3, 1fr);
-    padding: 0px;
-    background-color: white;
+.priceCardplan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px;
+  background-color: white;
 }
-.pricePL{
-    color: green;
+.pricePL {
+  color: green;
 }
-.pricebacktest{
-    color: rgba(39, 71, 221, 1);
-
+.pricebacktest {
+  color: rgba(39, 71, 221, 1);
 }
-.priceCol1{
-    border-right: 1px solid rgba(178, 178, 178, 0.7);
-    margin-right: 20px;
-    padding-left: 20px;
+.priceCol1 {
+  border-right: 1px solid rgba(178, 178, 178, 0.7);
+  margin-right: 20px;
+  padding-left: 20px;
 }
-.priceCol2{
-    border-right: 1px solid rgba(178, 178, 178, 0.7);
-    margin-right: 20px;
-}
-
-.textSecondary{
-    color: rgba(0, 0, 0, 0.7);
-
+.priceCol2 {
+  border-right: 1px solid rgba(178, 178, 178, 0.7);
+  margin-right: 20px;
 }
 
+.textSecondary {
+  color: rgba(0, 0, 0, 0.7);
+}

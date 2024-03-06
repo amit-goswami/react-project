@@ -57,7 +57,7 @@ const StateInputField: React.FC<props> = ({ selectedState, onChange }) => {
       menuItemsList.push(
         <MenuItem key={i} value={states[i].key}>
           {states[i].title}
-        </MenuItem>
+        </MenuItem>,
       );
     }
     return menuItemsList;

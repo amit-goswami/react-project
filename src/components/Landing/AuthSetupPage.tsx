@@ -30,7 +30,7 @@ const AuthSetupPage: React.FC = () => {
   }, [navigate]);
 
   async function sendResetValidationOTP(
-    event: React.FormEvent<HTMLFormElement>
+    event: React.FormEvent<HTMLFormElement>,
   ) {
     event.preventDefault();
     if (password !== rePassword) {

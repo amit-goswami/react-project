@@ -8,9 +8,9 @@ export class ResultsAPIModule {
   }
 
   public async getResults(data: IResultsAPIInput) {
-    console.log(data)
+    console.log(data);
     const accessToken = this.auth.getAccessToken();
-    console.log(accessToken)
+    console.log(accessToken);
     try {
       return fetch("https://api.moneyy.ai/api/mock/runtests", {
         method: "POST",

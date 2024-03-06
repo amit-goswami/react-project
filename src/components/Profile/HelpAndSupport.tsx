@@ -4,7 +4,7 @@ import Accordion from "./FAQAccordion";
 
 const HelpAndSupport: React.FC = () => {
   const [fAQs, setFAQs] = useState<boolean>(false);
-  const items:any = [
+  const items: any = [
     {
       question: "What is React?",
       answer: "React is a JavaScript library for building user interfaces.",
@@ -15,12 +15,14 @@ const HelpAndSupport: React.FC = () => {
         "JSX is a syntax extension for JavaScript used with React to describe what the UI should look like.",
     },
     {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
+      question:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
       answer:
         "JSX is a syntax extension for JavaScript used with React to describe what the UI should look like.",
     },
     {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
+      question:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
       answer:
         "JSX is a syntax extension for JavaScript used with React to describe what the UI should look like.",
     },

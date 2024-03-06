@@ -30,7 +30,7 @@ export const InputsPage: React.FC<IInputsPageProps> = (props) => {
   };
 
   const [strategyInputs, setStrategyInputs] = useState<IStrategyInput>(
-    defaultStrategyInputs
+    defaultStrategyInputs,
   );
   const [legs, setLegs] = useState<IStrategyLeg[]>([DefaultLeg]);
   const [showWatermark, setShowWatermark] = useState<boolean>(false);
@@ -77,7 +77,7 @@ export const InputsPage: React.FC<IInputsPageProps> = (props) => {
       paragraphElements.push(
         <p style={styles.watermarkText} key={i}>
           Moneyy.ai
-        </p>
+        </p>,
       );
     }
     return <div style={styles.watermarksWrapper}>{paragraphElements}</div>;

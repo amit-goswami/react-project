@@ -3,12 +3,25 @@ export class AuthModule {
   private accessToken: string | null;
   private refreshToken: string | null;
 
-  public constructor() {
+  private isAuthenticatedMemo: boolean | null = null;
+
+  private constructor() {
     this.accessToken = localStorage.getItem("accessToken");
     this.refreshToken = localStorage.getItem("refreshToken");
   }
 
-  public isAuthenticated(): Promise<boolean> {
+  public static getInstance(): AuthModule {
+    if (!AuthModule.instance) {
+      AuthModule.instance = new AuthModule();
+    }
+    return AuthModule.instance;
+  }
+
+  public async isAuthenticated(): Promise<boolean> {
+    if (this.isAuthenticatedMemo !== null) {
+      return this.isAuthenticatedMemo;
+    }
+
     return new Promise((resolve, reject) => {
       if (this.accessToken && this.refreshToken) {
         this.getAboutMe()
@@ -27,31 +40,28 @@ export class AuthModule {
 
   private processAboutMe(
     data: any,
-    resolve: (value: boolean | PromiseLike<boolean>) => void,
+    resolve: (value: boolean) => void,
     reject: (reason?: any) => void
   ) {
     if (data && this.accessToken) {
+      this.isAuthenticatedMemo = true;
       resolve(true);
     } else if (this.refreshToken) {
       this.getNewAccessToken(this.refreshToken).then((data) => {
         if (data) {
+          this.isAuthenticatedMemo = true;
           // this.accessToken = data.access;
           console.log("new access token", data);
           resolve(true);
         } else {
+          this.isAuthenticatedMemo = false;
           reject(false);
         }
       });
     } else {
+      this.isAuthenticatedMemo = false;
       reject(false);
     }
-  }
-
-  public static getInstance(): AuthModule {
-    if (!AuthModule.instance) {
-      AuthModule.instance = new AuthModule();
-    }
-    return AuthModule.instance;
   }
 
   public performLogout() {
@@ -59,6 +69,7 @@ export class AuthModule {
     localStorage.removeItem("refreshToken");
     this.accessToken = null;
     this.refreshToken = null;
+    this.isAuthenticatedMemo = false;
   }
 
   public getAccessToken(): string {

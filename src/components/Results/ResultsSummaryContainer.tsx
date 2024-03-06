@@ -14,7 +14,7 @@ const ResultsSummaryContainer: React.FC<ResultsSummaryContainerProps> = ({
     value: number,
     valSuffix?: string,
     isYellow?: boolean,
-    format?:boolean
+    format?: boolean,
   ) {
     let roundedVal = Math.round(value * 100) / 100;
     return (
@@ -22,40 +22,48 @@ const ResultsSummaryContainer: React.FC<ResultsSummaryContainerProps> = ({
         <p style={styles.boxHeader}>
           {title}
           <span style={styles.boxValue}>
-            {format?formatNumber(roundedVal):roundedVal} {valSuffix}
+            {format ? formatNumber(roundedVal) : roundedVal} {valSuffix}
           </span>
         </p>
       </div>
     );
   }
   const formatNumber = (amount: number): string => {
-    const suffixes = ['', 'K', 'M', 'B', 'T'];
-    const suffixNum = Math.floor(amount.toString().replace(/,/g, '').length / 3);
+    const suffixes = ["", "K", "M", "B", "T"];
+    const suffixNum = Math.floor(
+      amount.toString().replace(/,/g, "").length / 3,
+    );
     let shortValue = parseFloat(
       (suffixNum !== 0
-        ? parseFloat(amount.toString().replace(/,/g, '')) / Math.pow(1000, suffixNum)
-        : parseFloat(amount.toString().replace(/,/g, ''))
-      ).toPrecision(2)
+        ? parseFloat(amount.toString().replace(/,/g, "")) /
+          Math.pow(1000, suffixNum)
+        : parseFloat(amount.toString().replace(/,/g, ""))
+      ).toPrecision(2),
     );
     if (shortValue % 1 !== 0) {
       shortValue = parseFloat(shortValue.toFixed(1));
     }
     return shortValue + suffixes[suffixNum];
   };
-  
 
-console.log(typeof data.estimatedMargin)
+  console.log(typeof data.estimatedMargin);
   return (
     <div style={styles.summaryPage}>
       <div style={{ ...styles.sectionBox, ...styles.borderRight }}>
         <p style={styles.sectionHeader}>Key Metrics</p>
-        {getResultsBox("Avg. Capital Deployed", data.estimatedMargin, "", true, true)}
-{getResultsBox("Total P/L", data.overallProfit,"", false, true)}
-{getResultsBox("Profit% (Days)", data.winPerctInDays, "%", true)}
-{getResultsBox("Loss% (Days)", data.lossPerctInDays, "%", false)}
-{getResultsBox("Max Profit", data.maxDayProfit, "", true)}
-{getResultsBox("Max Loss", data.maxDayLoss)}
-{getResultsBox("Lot Sizes", data.lotSizes, "", true)}
+        {getResultsBox(
+          "Avg. Capital Deployed",
+          data.estimatedMargin,
+          "",
+          true,
+          true,
+        )}
+        {getResultsBox("Total P/L", data.overallProfit, "", false, true)}
+        {getResultsBox("Profit% (Days)", data.winPerctInDays, "%", true)}
+        {getResultsBox("Loss% (Days)", data.lossPerctInDays, "%", false)}
+        {getResultsBox("Max Profit", data.maxDayProfit, "", true)}
+        {getResultsBox("Max Loss", data.maxDayLoss)}
+        {getResultsBox("Lot Sizes", data.lotSizes, "", true)}
       </div>
       <div style={{ ...styles.sectionBox, ...styles.borderRight }}>
         <p style={styles.sectionHeader}>Aggregates</p>
@@ -77,7 +85,7 @@ console.log(typeof data.estimatedMargin)
           "Recovery Days",
           data.maxDrawDaysRecoveryPeriod,
           "",
-          true
+          true,
         )}
         {getResultsBox("Max Peak profit", data.maxPeakProfit)}
         {getResultsBox("Peak Profit / MDD", data.maxProfitByMDD, "", true)}

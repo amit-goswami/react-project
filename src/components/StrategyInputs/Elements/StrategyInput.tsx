@@ -19,7 +19,7 @@ const StrategyInput: React.FC<Props> = ({ strategy, label, onChange }) => {
     menuItemsList.push(
       <MenuItem key={1} value={"ShortStrangle"}>
         Short Strangle
-      </MenuItem>
+      </MenuItem>,
     );
     return menuItemsList;
   };

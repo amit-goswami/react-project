@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Styles, ThemeTypes } from '../../Utils/Constants';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { Styles, ThemeTypes } from "../../Utils/Constants";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Link } from "react-router-dom";
 interface PopupProps {
   strategyName: string;
 }
@@ -22,28 +22,28 @@ const Popup: React.FC<PopupProps> = ({ strategyName }) => {
 
   return (
     <div
-      className='flex-center'
+      className="flex-center"
       style={{
-        display: isVisible ? 'block' : 'none',
-        padding: '10px',
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#fff',
+        display: isVisible ? "block" : "none",
+        padding: "10px",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "#fff",
         zIndex: 999,
       }}
     >
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <CheckCircleIcon
           style={{ fontSize: 60 }}
-          className='check-circle-icon'
+          className="check-circle-icon"
         />
         <span style={Styles.h3Text}>
           Congratulations for subscribing to "{strategyName}".
@@ -57,7 +57,7 @@ const Popup: React.FC<PopupProps> = ({ strategyName }) => {
 };
 
 export const congratsMessagePopup = (strategyName: string) => {
-  const popupElement = document.createElement('div');
+  const popupElement = document.createElement("div");
   document.body.appendChild(popupElement);
 
   const closePopup = () => {

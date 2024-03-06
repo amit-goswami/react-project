@@ -45,7 +45,7 @@ const StrategyPL: React.FC = () => {
                 },
               ],
             }),
-          }
+          },
         );
         if (response.ok) {
           const jsonResponse = await response.json();

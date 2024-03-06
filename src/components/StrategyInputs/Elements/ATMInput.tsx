@@ -20,7 +20,7 @@ const ATMDiffInput: React.FC<Props> = ({ atmValue, onChange, thinner }) => {
       menuItemsList.push(
         <MenuItem key={i} value={i * 100}>
           {i === 0 ? "ATM" : `ATM ${i * 100}`}
-        </MenuItem>
+        </MenuItem>,
       );
     }
     return menuItemsList;

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Styles } from '../Utils/Constants';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { Styles } from "../Utils/Constants";
 interface PopupProps {
   message: string;
 }
@@ -20,18 +20,18 @@ const Popup: React.FC<PopupProps> = ({ message }) => {
 
   return (
     <div
-      className='flex-center kill-switch-popup'
+      className="flex-center kill-switch-popup"
       style={{
-        display: isVisible ? 'block' : 'none',
-        padding: '15px',
-        border: '1px solid #ccc',
-        position: 'fixed',
-        top: '40%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#fff',
+        display: isVisible ? "block" : "none",
+        padding: "15px",
+        border: "1px solid #ccc",
+        position: "fixed",
+        top: "40%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "#fff",
         zIndex: 999,
-        borderRadius: '8px',
+        borderRadius: "8px",
       }}
     >
       <span style={Styles.h3Text}>{message}</span>
@@ -40,7 +40,7 @@ const Popup: React.FC<PopupProps> = ({ message }) => {
 };
 
 export const showPopUpMessage = (message: string) => {
-  const popupElement = document.createElement('div');
+  const popupElement = document.createElement("div");
   document.body.appendChild(popupElement);
 
   const closePopup = () => {

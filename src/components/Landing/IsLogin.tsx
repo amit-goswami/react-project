@@ -15,21 +15,21 @@ import PlanAndPricing from "../Profile/PlanAndPricing";
 import IsLoginSection from "./IsLoginSection";
 
 const IsLogin: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const isAuthenticated =
+          await AuthModule.getInstance().isAuthenticated();
+        setIsAuthenticated(isAuthenticated);
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+      }
+    };
 
-    useEffect(() => {
-      const checkAuthentication = async () => {
-        try {
-          const isAuthenticated = await AuthModule.getInstance().isAuthenticated();
-          setIsAuthenticated(isAuthenticated);
-        } catch (error) {
-          console.error("Error checking authentication:", error);
-        }
-      };
-  
-      checkAuthentication();
-    }, []);
+    checkAuthentication();
+  }, []);
   return (
     <div
       style={{
