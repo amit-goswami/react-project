@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { AuthModule } from "../../API";
+import { AuthModule } from "../../API/Auth";
 import { useNavigate } from "react-router-dom";
 import { Theme, ThemeTypes } from "../../Utils/Constants";
 import AuthSetupErrors, { LandingPagesEnums } from "./AuthSetupErrors";
@@ -30,7 +30,7 @@ const AuthSetupPage: React.FC = () => {
   }, [navigate]);
 
   async function sendResetValidationOTP(
-    event: React.FormEvent<HTMLFormElement>,
+    event: React.FormEvent<HTMLFormElement>
   ) {
     event.preventDefault();
     if (password !== rePassword) {

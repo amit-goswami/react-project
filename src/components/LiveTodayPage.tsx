@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { AuthModule } from "../API";
 import Header, { CurrentPage } from "./Header/Header";
 import { Theme } from "../Utils/Constants";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import LiveTodayPageContent from "./AIStrategies/LiveTodayHomePage";
 import { useNavigate } from "react-router-dom";
+import { AuthModule } from "../API/Auth";
 
 const LiveTodayPage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

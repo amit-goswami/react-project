@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-import { AuthModule, ResultsAPIModule } from "../API";
 import ResultsPage from "./Results/ResultsPage";
 import InputsPage, { IInputsPageResult } from "./StrategyInputs/InputsPage";
 import Header, { CurrentPage } from "./Header/Header";
@@ -13,6 +12,8 @@ import NavBar from "./NavBar";
 import LoaderDialog from "./Dialogs/LoaderDialog";
 import { Samples } from "../API/samples";
 import { set } from "date-fns";
+import { AuthModule } from "../API/Auth";
+import { ResultsAPIModule } from "../API/ResultsAPI";
 
 enum HomePageStep {
   Inputs,

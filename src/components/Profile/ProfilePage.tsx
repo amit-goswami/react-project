@@ -20,8 +20,8 @@ import StrategyPL from "./StrategyPL";
 import HelpAndSupport from "./HelpAndSupport";
 import useWindowSize from "../Hooks/useWindowSize";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthModule } from "../../API";
 import useAppStore from "../../store/app.store";
+import { AuthModule } from "../../API/Auth";
 
 const ProfilePage: React.FC = () => {
   const params = useParams();

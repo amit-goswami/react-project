@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { AuthModule } from "../../API";
+import { AuthModule } from "../../API/Auth";
 import { useNavigate } from "react-router-dom";
 import { Theme } from "../../Utils/Constants";
 import Header, { CurrentPage } from "../Header/Header";

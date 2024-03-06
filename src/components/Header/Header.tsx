@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Theme } from "../../Utils/Constants";
-import { AuthModule } from "../../API";
+import { AuthModule } from "../../API/Auth";
 import { useNavigate } from "react-router-dom";
 import HeaderDropDown from "./HeaderDropDown";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";

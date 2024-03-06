@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { AuthModule } from "../../API";
 import { useNavigate } from "react-router-dom";
 import { Theme } from "../../Utils/Constants";
 import Header, { CurrentPage } from "../Header/Header";
@@ -13,6 +12,7 @@ import FreeTrialSection from "./FreeTrialSection";
 import IntroAndAuthSection from "./IntroAndAuthSection";
 import PlanAndPricing from "../Profile/PlanAndPricing";
 import Pricing from "../Profile/Pricing";
+import { AuthModule } from "../../API/Auth";
 
 const LandingPageAfterLogin: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
