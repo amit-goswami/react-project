@@ -66,6 +66,30 @@ const PlanAndPricing: React.FC = () => {
     backtestDesc: "Backtest your strategies with historical data",
     strategyDesc: "Choose and deploy your strategies to the market",
   };
+
+  const strategyPlans = [
+    {
+      advantage: true,
+      text: "Advantage 1",
+    },
+    {
+      advantage: true,
+      text: "Free Advantage 1",
+    },
+    {
+      advantage: true,
+      text: "Free Advantage 1",
+    },
+    {
+      advantage: true,
+      text: "Free Advantage 1",
+    },
+    {
+      advantage: true,
+      text: "Free Advantage 1",
+    },
+  ];
+
   const freemiums = [
     {
       advantage: true,
@@ -126,37 +150,39 @@ const PlanAndPricing: React.FC = () => {
   };
 
   const getPayFrequencySwitcher = () => {
-    return (
-      <div style={styles.frequencyBox}>
-        <p style={styles.freqText}>Bill Monthly</p>
-        <Switch
-          size="lg"
-          onChange={() => setIsMonthly(!isMonthly)}
-          checked={!isMonthly}
-          slotProps={{
-            track: {
-              sx: {
-                justifyContent: "space-around",
-                backgroundColor: Theme.colors.blueSolid,
-                color: Theme.colors.yellow,
+    return isBacktest ? (
+      <>
+        <div style={styles.frequencyBox}>
+          <p style={styles.freqText}>Bill Monthly</p>
+          <Switch
+            size="lg"
+            onChange={() => setIsMonthly(!isMonthly)}
+            checked={!isMonthly}
+            slotProps={{
+              track: {
+                sx: {
+                  justifyContent: "space-around",
+                  backgroundColor: Theme.colors.blueSolid,
+                  color: Theme.colors.yellow,
+                },
               },
-            },
-          }}
-          sx={{
-            "--Switch-thumbSize": "24px",
-            "--Switch-trackWidth": "64px",
-            "--Switch-trackHeight": "32px",
-          }}
-        />
-        <p style={styles.freqText}>
-          Bill Annually{" "}
-          <span style={{ color: Theme.colors.blueSolid }}>( Save 40% )</span>
-        </p>
-      </div>
+            }}
+            sx={{
+              "--Switch-thumbSize": "24px",
+              "--Switch-trackWidth": "64px",
+              "--Switch-trackHeight": "32px",
+            }}
+          />
+          <p style={styles.freqText}>
+            Bill Annually{" "}
+            <span style={{ color: Theme.colors.blueSolid }}>( Save 40% )</span>
+          </p>
+        </div>
+      </>
+    ) : (
+      <></>
     );
   };
-
-  console.log(planData);
 
   const getAdvantagesList = (advantages: any) => {
     return advantages.map((freemium: { advantage: any; text: string }) => {
@@ -230,37 +256,152 @@ const PlanAndPricing: React.FC = () => {
     );
   };
 
-  const getActualPlans = () => {
+  const getStrategyPlans = () => {
     return (
-      <div style={styles.expandingContainer}>
-        <div
-          style={{
-            ...styles.freePlanBox,
-            border: isBuyNowClicked ? "" : "4px solid rgba(39, 71, 221, 1)",
-          }}
-        >
-          {!isBuyNowClicked && (
-            <div style={{ ...styles.currentPlan, position: "relative" }}>
-              Current Plan
+      <div style={styles.expandingContainerStrategy}>
+        <div style={styles.buyStrategyPlans}>
+          <div>
+            <h2 style={styles.strategyText}>
+              Pay as per your Investment Capital
+            </h2>
+            <p>It's free for first Lot</p>
+          </div>
+          <div style={styles.rangeDiv}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column" as const,
+                justifyContent: "center" as const,
+              }}
+            >
+              <div
+                style={{
+                  margin: 0,
+                  backgroundColor: "#2747DD",
+                  color: "white",
+                  padding: "0px 8px",
+                  borderRadius: "6px",
+                  width: "fit-content",
+                  height: "fit-content",
+                  marginBottom: "-10px",
+                  marginLeft: "10px",
+                }}
+              >
+                Free
+              </div>
+              <input type="range" min="1" max="100" value="50" />
             </div>
-          )}
-          <div>{getFreeBox()}</div>
+            <div style={styles.rangeDivText}>
+              <h2 style={styles.strategyText}>Total</h2>
+              <h2 style={styles.strategyText}>$500/month</h2>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column" as const,
+              justifyContent: "center" as const,
+              alignItems: "center" as const,
+            }}
+          >
+            <button style={styles.yellowButton}>Buy Now!</button>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column" as const,
+                justifyContent: "center" as const,
+                alignItems: "center" as const,
+                marginBlock: "24px",
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                }}
+              >
+                lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                }}
+              >
+                lorem dolor sit amet, consectetur adipiscing elit
+              </p>
+            </div>
+          </div>
         </div>
-        <div
-          style={{
-            ...styles.eachPlanBox,
-            backgroundColor: Theme.colors.blueTainted15,
-            border: isBuyNowClicked ? "4px solid rgba(39, 71, 221, 1)" : "",
-          }}
-        >
-          {isBuyNowClicked && (
-            <div style={{ ...styles.currentPlanPremium, position: "relative" }}>
-              Current Plan
-            </div>
-          )}
-          {getPremiumBox()}
+
+        {/* 2nd div  */}
+        <div style={styles.allPlans}>
+          <h2
+            style={{
+              ...styles.strategyText,
+              marginLeft: "14px",
+            }}
+          >
+            All Plans Include
+          </h2>
+          {strategyPlans.map((plan, index) => {
+            return (
+              <div style={styles.advatages} key={index}>
+                <CheckCircle
+                  style={{
+                    color: plan.advantage
+                      ? Theme.colors.blueSolid
+                      : Theme.colors.red,
+                    marginRight: 10,
+                    marginLeft: 12,
+                  }}
+                />
+                <p style={{ margin: 5 }}>{plan.text}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
+    );
+  };
+
+  const getActualPlans = () => {
+    return (
+      <>
+        {isBacktest ? (
+          <div style={styles.expandingContainer}>
+            <div
+              style={{
+                ...styles.freePlanBox,
+                border: isBuyNowClicked ? "" : "4px solid rgba(39, 71, 221, 1)",
+              }}
+            >
+              {!isBuyNowClicked && (
+                <div style={{ ...styles.currentPlan, position: "relative" }}>
+                  Current Plan
+                </div>
+              )}
+              <div>{getFreeBox()}</div>
+            </div>
+            <div
+              style={{
+                ...styles.eachPlanBox,
+                backgroundColor: Theme.colors.blueTainted15,
+                border: isBuyNowClicked ? "4px solid rgba(39, 71, 221, 1)" : "",
+              }}
+            >
+              {isBuyNowClicked && (
+                <div
+                  style={{ ...styles.currentPlanPremium, position: "relative" }}
+                >
+                  Current Plan
+                </div>
+              )}
+              {getPremiumBox()}
+            </div>
+          </div>
+        ) : (
+          getStrategyPlans()
+        )}
+      </>
     );
   };
 
@@ -406,6 +547,45 @@ const styles = {
     display: "flex",
     flexDirection: "row" as const,
     justifyContent: "center" as const,
+  },
+  expandingContainerStrategy: {
+    display: "flex",
+    flexDirection: "row" as const,
+    margin: "24px",
+    padding: "24px",
+  },
+  buyStrategyPlans: {
+    display: "flex",
+    flex: 0.6,
+    flexDirection: "column" as const,
+    justifyContent: "center" as const,
+    alignItems: "center" as const,
+    borderRadius: Theme.borderRadius,
+    background: "linear-gradient(166.04deg, #9FB0FF 4.52%, #D6D9F5 92.5%)",
+    padding: "84px",
+  },
+  allPlans: {
+    display: "flex",
+    flex: 0.4,
+    flexDirection: "column" as const,
+    backgroundColor: Theme.colors.yellow,
+    borderRadius: Theme.borderRadius,
+    padding: "84px 34px",
+  },
+  strategyText: {
+    fontWeight: "500",
+  },
+  rangeDiv: {
+    display: "flex",
+    width: "100%",
+    flexDirection: "column" as const,
+    justifyContent: "space-between" as const,
+  },
+  rangeDivText: {
+    display: "flex",
+    flexDirection: "row" as const,
+    justifyContent: "space-between" as const,
+    alignItems: "center" as const,
   },
 };
 
